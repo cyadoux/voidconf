@@ -3,15 +3,17 @@ A terminal based IRC client for UNIX systems.
 
 ## Basic Configuration
 
-### SSL Connection
+### Configuring SASL for Irssi
 
-Freenode uses port 6697, 7000 and 7070 for SSL connections (not 6667). To connect to Freenode IRC network via SSL you have to setup an new connection. Start irssi and run:
+Recent Irssi versions include built-in SASL support via /network:
 
-  /server add -auto -ssl -ssl_verify -ssl_capath /etc/ssl/certs -network freenode -port 6697 chat.freenode.net
+	/network add -sasl_username <login> -sasl_password <password> -sasl_mechanism PLAIN freenode
+	/server add -auto -net freenode -ssl -ssl_verify irc.freenode.net 6697
+
 
 Save your new settings with:
 
-  /save
+	/save
 
 If everything works you will see the "Z" mode set. It should look like this: "Mode change (+Zi) for user your-nick"
 
@@ -19,14 +21,14 @@ If everything works you will see the "Z" mode set. It should look like this: "Mo
 
 Here's the configuration I use to make irssi automatically identify my nick. First, add the irc server(s) and enable auto connect:
 
-  /server add -auto -network networkname irc.networkname.com 6667
+	/server add -auto -network networkname irc.networkname.com 6667
 
 Also, make sure the nick to be identified is used:
 /network add -nick nickname networkname
 
 Automatically join a channel:
 
-  /channel add -auto #channel networkname
+	/channel add -auto #channel networkname
 
 Identify your nickname with NickServ. This is where additional commands, such as auto invite, are added.
-  /network add -autosendcmd "/msg nickserv identify password ;wait 2000" networkname
+	/network add -autosendcmd "/msg nickserv identify password ;wait 2000" networkname
