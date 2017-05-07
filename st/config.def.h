@@ -164,7 +164,7 @@ static MouseShortcut mshortcuts[] = {
 };
 
 /* Internal keyboard shortcuts. */
-#define MODKEY Mod1Mask
+#define MODKEY Mod3Mask
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
