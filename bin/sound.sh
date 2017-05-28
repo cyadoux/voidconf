@@ -19,15 +19,4 @@ case "$1" in
           ;;
 esac
 
-# Get current volume and state
-VOLUME=$(amixer get Master | grep 'Mono:' | cut -d ' ' -f 6 | sed -e 's/[^0-9]//g')
-STATE=$(amixer get Master | grep 'Mono:' | grep -o "\[off\]")
-
-# Show volume with volnoti
-if [[ -n $STATE ]]; then
-  volnoti-show -m
-else
-  volnoti-show $VOLUME
-fi
-
 exit 0

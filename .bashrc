@@ -13,7 +13,7 @@ esac
 
 export EDITOR=vis
 export TERMINAL=st
-export BROWSER=firefox
+export BROWSER=qutebrowser
 export PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -66,5 +66,22 @@ man() {
 			man "$@"
 }
 
+# PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# Show current git branch in prompt.                                                                                                            
+function parse_git_branch {
+	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+RED="\[\033[0;31m\]"
+YELLOW="\[\033[0;33m\]"
+GREEN="\[\033[0;32m\]"
+LIGHT_GREEN="\[\033[1;32m\]"
+LIGHT_GRAY="\[\033[0;37m\]"
+
+PS1="$LIGHT_GRAY\u@\h \W$YELLOW \$(parse_git_branch)$RED\$ $LIGHT_GRAY"
+
 # prompt
-PS1="[\u@\h \W]\\$ "
+#PS1="[\u@\h \W]\\$ "
