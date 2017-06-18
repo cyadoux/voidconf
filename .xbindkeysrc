@@ -29,13 +29,12 @@
 	Mod2 + XF86AudioStop
 
 "sh $HOME/bin/media.sh next"
-	m:0x10 + c:173
-	Mod2 + XF86AudioPrev
-
-"sh $HOME/bin/media.sh prev"
 	m:0x10 + c:171
 	Mod2 + XF86AudioNext
 
+"sh $HOME/bin/media.sh prev"
+	m:0x10 + c:173
+	Mod2 + XF86AudioPrev
 
 
 #
