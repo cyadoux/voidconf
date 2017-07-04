@@ -68,6 +68,9 @@ man() {
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# passmenu
+export PATH="$HOME/bin/passmenu:$PATH"
+
 # Show current git branch in prompt.                                                                                                            
 function parse_git_branch {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
