@@ -87,3 +87,5 @@ PS1="$LIGHT_GRAY\u@\h \W$YELLOW \$(parse_git_branch)$RED\$ $LIGHT_GRAY"
 # prompt
 #PS1="[\u@\h \W]\\$ "
 
+PATH=~/.local/bin:$PATH
+source virtualenvwrapper.sh
